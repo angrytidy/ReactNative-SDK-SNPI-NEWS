@@ -1,0 +1,8 @@
+{
+  "name": "SNPINews",
+  "displayName": "SNPI News",
+  "splash": {
+    "backgroundColor": "#ffffff",
+    "resizeMode": "contain"
+  }
+}
