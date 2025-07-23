@@ -1,13 +1,6 @@
-rootProject.name = 'SNPINews'
-include ':react-native-wonderpush-fcm'
-project(':react-native-wonderpush-fcm').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-wonderpush-fcm/android')
-include ':react-native-wonderpush-fcm'
-project(':react-native-wonderpush-fcm').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-wonderpush-fcm/android')
-include ':react-native-wonderpush'
-project(':react-native-wonderpush').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-wonderpush/android')
-include ':react-native-webview'
-project(':react-native-webview').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webview/android')
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+plugins { id("com.facebook.react.settings") }
+extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+rootProject.name = 'snpiNews'
 include ':app'
-include ':app', ':react-native-code-push'
-project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
+includeBuild('../node_modules/@react-native/gradle-plugin')

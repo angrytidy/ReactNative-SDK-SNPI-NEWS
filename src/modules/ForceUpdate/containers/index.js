@@ -4,7 +4,9 @@ import React from 'react';
 import ForceUpdateComponent from './components';
 
 // Injectors
-import injectLocales from 'utils/injectLocales';
+import injectLocales from '../../../utils/injectLocales';
+
+
 
 // import locales
 import fr from '../locales/fr';

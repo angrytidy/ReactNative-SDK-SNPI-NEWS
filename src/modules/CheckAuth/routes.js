@@ -1,15 +1,17 @@
-import {ActionConst} from 'react-native-router-flux';
+// ...
+// import {ActionConst} from 'react-native-router-flux';
 
 /*
  * Routing component (from modules folder)
  */
-import CheckAuth from 'modules/CheckAuth';
+import CheckAuth from './index';
 
 const routes = [
   {
     key: 'CheckAuth',
     component: CheckAuth,
-    type: ActionConst.RESET,
+    // ...
+    // type: ActionConst.RESET,
     initial: true,
   },
 ];

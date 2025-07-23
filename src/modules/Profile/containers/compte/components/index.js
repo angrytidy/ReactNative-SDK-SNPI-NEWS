@@ -9,7 +9,8 @@ import {
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 // lib
-import { Actions } from "react-native-router-flux";
+// ...
+// import { Actions } from "react-native-router-flux";
 import CONFIG from "../../../../../config/api";
 import OpenPdf from 'react-native-open-pdf';
 const { API_BASE_URL, API_VERSION } = CONFIG;
@@ -72,7 +73,10 @@ export default () => {
   return (
     <View style={styles.container}>
       <View style={styles.hedaerContent}>
-        <TouchableOpacity activeOpacity={0.8} style={styles.backContent} onPress={() => Actions.List()}>
+        <TouchableOpacity activeOpacity={0.8} style={styles.backContent} onPress={() => {
+          // ...
+          // Actions.List()
+        }}>
           <Image source={require("assets/imgs/arrow-back.png")} style={styles.back} resizeMode="contain"/>
         </TouchableOpacity>
 
@@ -91,7 +95,8 @@ export default () => {
           gaSendLoadAppEvent(currentUser?.id?.toString(), "card_click");
 
           if (adherentCard?.lastname != "") {
-            Actions.Card()
+            // ...
+            // Actions.Card()
           }
           else {
             Alert.alert(
@@ -108,7 +113,10 @@ export default () => {
             />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => Actions.Abonnements()} activeOpacity={0.8}>
+        <TouchableOpacity onPress={() => {
+          // ...
+          // Actions.Abonnements()
+        }} activeOpacity={0.8}>
           <View style={styles.choiceContent}>
             <Text style={styles.choice}>{strings.followers}</Text>
             <Image
@@ -117,7 +125,10 @@ export default () => {
             />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => Actions.Notifications()} activeOpacity={0.8}>
+        <TouchableOpacity onPress={() => {
+          // ...
+          // Actions.Notifications()
+        }} activeOpacity={0.8}>
           <View style={styles.choiceContent}>
             <Text style={styles.choice}>{strings.notifications}</Text>
             <Image

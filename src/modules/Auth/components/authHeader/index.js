@@ -5,12 +5,16 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from './styles';
 
 //lib
-import {Actions} from 'react-native-router-flux';
+// ...
+// import {Actions} from 'react-native-router-flux';
 
 const AuthHeader = (props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => Actions.pop()}>
+      <TouchableOpacity onPress={() => {
+        // ...
+        // Actions.pop()
+      }}>
         <Image
           source={require('assets/imgs/back.png')}
           style={styles.backImage}
@@ -18,7 +22,10 @@ const AuthHeader = (props) => {
         />
       </TouchableOpacity>
       {props.title && (
-        <TouchableOpacity onPress={() => Actions.pop()}>
+        <TouchableOpacity onPress={() => {
+          // ...
+          // Actions.pop()
+        }}>
           <Text style={styles.title}>{props.title}</Text>
         </TouchableOpacity>
       )}

@@ -1,0 +1,30 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "assets/*": ["assets/*"],
+      "common/*": ["common/*"],
+      "styles/*": ["common/styles/*"],
+      "colors/*": ["common/colors/*"],
+      "components/*": ["common/components/*"],
+      "config/*": ["config/*"],
+      "actions/*": ["actions/*"],
+      "actionsTypes/*": ["actionsTypes/*"],
+      "api/*": ["api/*"],
+      "contextProviders/*": ["contextProviders/*"],
+      "hooks/*": ["hooks/*"],
+      "lib/*": ["lib/*"],
+      "locales/*": ["locales/*"],
+      "modules/*": ["modules/*"],
+      "reducers/*": ["reducers/*"],
+      "router/*": ["router/*"],
+      "scripts/*": ["scripts/*"],
+      "services/*": ["services/*"],
+      "store/*": ["store/*"],
+      "utils/*": ["utils/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

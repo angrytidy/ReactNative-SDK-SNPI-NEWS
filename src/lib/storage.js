@@ -5,7 +5,7 @@
  */
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import reportError from "lib/errorHandler";
+import reportError from "../lib/errorHandler";
 
 const appName = require("../../package.json").name;
 function getPermissions() {

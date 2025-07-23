@@ -29,7 +29,8 @@ import styles from "./styles";
 // labels
 import strings from "../../../locales/fr";
 // navigation
-import { Actions } from "react-native-router-flux";
+// ...
+// import { Actions } from "react-native-router-flux";
 import WonderPush from "react-native-wonderpush";
 import {loginFailure, loginSuccess, setCurrentUser} from "../../../../Auth/actions";
 import {setUserHasSentNotificationsPermission} from "../../../../../actions/notificationsPermissionsActions";
@@ -143,12 +144,13 @@ export default (props) => {
 
   // backhandler function
   const backAction = () => {
-    if (Actions.currentScene === "List") {
-      setVisible(false);
-      setModalFilterVisible(false);
-      BackHandler.exitApp()
-      return true;
-    }
+    // ...
+    // if (Actions.currentScene === "List") {
+    //   setVisible(false);
+    //   setModalFilterVisible(false);
+    //   BackHandler.exitApp()
+    //   return true;
+    // }
   };
 
   const selectPeriod = (period) => {
@@ -479,7 +481,10 @@ export default (props) => {
             {/* TOPBAR LEFT ITEM */}
             <View style={[styles.topBarLeftItem]}>
               <View style={[styles.overlayiOS]}>
-                <TouchableOpacity style={{justifyContent: "center"}} onPress={() => Actions.Profile()}>
+                <TouchableOpacity style={{justifyContent: "center"}} onPress={() => {
+                  // ...
+                  // Actions.Profile()
+                }}>
                   {profile ? (<Image source={{ uri: profile }} resizeMode="cover" style={[styles.profile]} />) : (<Text style={styles.profileText}>{profileText}</Text>)}
                 </TouchableOpacity>
               </View >

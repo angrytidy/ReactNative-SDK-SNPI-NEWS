@@ -1,19 +1,20 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import { Content } from "native-base";
 
 //styles
 import styles from "./styles";
 
 // libs
-import { Actions } from "react-native-router-flux";
+// ...
+// import { Actions } from "react-native-router-flux";
 
 //componens
 import AuthHeader from "../../../components/authHeader";
-import Input from "components/Input";
-import Button from "components/Button";
+import Input from "../../../../../common/components/Input";
+import Button from "../../../../../common/components/Button";
 import Switcher from "../../../components/Switcher";
-import strings from "config/strings";
+import strings from "../../../../../config/strings";
+
 
 class Login extends React.Component {
   state = {
@@ -23,11 +24,13 @@ class Login extends React.Component {
   resetPassword = () => {
     const { login } = this.state;
     const paylaod = { login };
-    this.props.actions.passwordReset(paylaod);
+    // ...
+    // this.props.actions.passwordReset(paylaod);
   };
 
   onPress = () => {
-    Actions.Login();
+    // ...
+    // Actions.Login();
   };
   render() {
     return (

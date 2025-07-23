@@ -8,7 +8,8 @@ import {
   Linking,
   Platform
 } from "react-native";
-import { Actions } from "react-native-router-flux";
+// ...
+// import { Actions } from "react-native-router-flux";
 import { useDispatch, useSelector } from "react-redux";
 
 // styles
@@ -82,7 +83,8 @@ export default (props) => {
   useEffect(() => {
     if (state) {
       Linking.openURL(getUrlRedirection(state));
-      Actions.pop()
+      // ...
+      // Actions.pop()
     }
   }, [])
 
@@ -120,7 +122,10 @@ export default (props) => {
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.backContent}
-        onPress={() => Actions.pop()}
+        onPress={() => {
+          // ...
+          // Actions.pop()
+        }}
       >
         <Image
           source={require("assets/imgs/arrow-back.png")}

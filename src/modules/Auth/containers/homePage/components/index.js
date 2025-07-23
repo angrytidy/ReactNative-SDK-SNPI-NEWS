@@ -6,7 +6,8 @@ import styles from "./styles";
 
 //components
 import Button from "components/Button";
-import { Actions } from "react-native-router-flux";
+// ...
+// import { Actions } from "react-native-router-flux";
 
 import strings from "config/strings";
 
@@ -21,11 +22,11 @@ const HomePage = () => {
       <View style={styles.containerText}>
         <View style={styles.syndicatContent}>
           <Image
-            source={require("../../../../../assets/imgs/SNPI-logo.png")}
+            source={require("assets/imgs/SNPI-logo.png")}
             style={styles.logoImage}
           />
           <Image
-            source={require("../../../../../assets/imgs/SNPI-Text.png")}
+            source={require("assets/imgs/SNPI-Text.png")}
             style={styles.logoText}
           />
         </View>
@@ -50,7 +51,10 @@ const HomePage = () => {
               <Text style={styles.btnText}>{strings.homePage_commencer}</Text>
             </View>
           }
-          additonalContainerStyle={styles.additonalContainerStyle} onPress={() => Actions.Login()}
+          additonalContainerStyle={styles.additonalContainerStyle} onPress={() => {
+            // ...
+            // Actions.Login()
+          }}
         />
       </View>
     </View>

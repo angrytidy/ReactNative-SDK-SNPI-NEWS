@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 // redux action
-import * as actions from "modules/Auth/actions";
+import * as actions from "../../../../modules/Auth/actions";
+
 
 
 

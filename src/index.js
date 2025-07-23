@@ -3,19 +3,18 @@
 import React from "react";
 
 import { Provider } from "react-redux";
-
-import { NetworkProvider } from "contexts/NetworkProvider";
-import { AppStateProvider } from "contexts/AppStateProvider";
+import { NetworkProvider } from "./contextProviders/NetworkProvider";
+import { AppStateProvider } from "./contextProviders/AppStateProvider";
 import { MenuProvider } from "react-native-popup-menu";
-
-
-import notificationHandler from "lib/notificationHandler";
-
-// Some actions
-
 import configureStore from "./store";
+
+import notificationHandler from "./lib/notificationHandler";
+
 import Router from "./router";
-const { store } = configureStore();
+import { navigate, navigationRef } from "router/navigator";
+import { NavigationContainer } from '@react-navigation/native';
+
+const store = configureStore();
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -40,7 +39,9 @@ export default class Main extends React.Component {
         <Provider store={store}>
           <NetworkProvider>
             <AppStateProvider>
-              <Router />
+              <NavigationContainer ref={navigationRef}>
+                <Router />
+              </NavigationContainer>
             </AppStateProvider>
           </NetworkProvider>
         </Provider>

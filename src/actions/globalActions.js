@@ -14,7 +14,7 @@ import {
   REFRESH_REQUEST,
   REFRESH_SUCCESS,
   REFRESH_FAILED,
-} from "actionstypes";
+} from "actionsTypes";
 
 //lib
 import { displaySessionToast, displayToast } from "lib/interactions";

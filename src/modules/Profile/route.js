@@ -1,4 +1,5 @@
-import { ActionConst } from "react-native-router-flux";
+// ...
+// import { ActionConst } from "react-native-router-flux";
 
 /*
  * Routing component (from modules folder)

@@ -10,8 +10,8 @@ import {ToastAndroid, Alert, Platform} from 'react-native';
 
 import strings from 'config/strings';
 import storage from 'lib/storage';
-
-import {Actions} from 'react-native-router-flux';
+// ...
+// import {Actions} from 'react-native-router-flux';
 
 export const displayToast = (msg) => {
   if (Platform.OS === 'android') {
@@ -31,8 +31,14 @@ export const displaySessionToast = () => {
         onPress: () => {
           storage
             .clearSession('null')
-            .then(() => Actions.Login())
-            .catch(() => Actions.Login());
+            .then(() => {
+              // ...
+              // Actions.Login()
+            })
+            .catch(() => {
+              // ...
+              // Actions.Login()
+            });
         },
       },
     ],

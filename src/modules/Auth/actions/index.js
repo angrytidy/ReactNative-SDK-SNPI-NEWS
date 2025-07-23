@@ -18,10 +18,10 @@ import {
 import storage from "lib/storage";
 
 // globalTypes
-import { SET_CURRENT_USER } from "actionstypes";
+import { SET_CURRENT_USER } from "actionsTypes";
 
 import { loginUrl, passwordUrl, logoutUrl } from "../api/endpoints";
-import { Actions } from "react-native-router-flux";
+// import { Actions } from "react-native-router-flux";
 import WonderPush from "react-native-wonderpush";
 import {setUserAdherentCard} from "../../../actions/adherentCardActions";
 import {refreshToken} from "../../../actions";
@@ -69,8 +69,8 @@ export const login = (payload) => {
               .catch(async (error) => {
                   console.debug(JSON.stringify(error));
               });
-
-        Actions.List();
+        // ...
+        // Actions.List();
       })
       .catch(async (error) => {
         console.log(error);
@@ -88,7 +88,8 @@ export const logoutUser = () => {
       .get(logoutUrl())
       .then(async () => {
         await WonderPush.unsubscribeFromNotifications();
-        Actions.reset("Login");
+        // ...
+        // Actions.reset("Login");
         storage.clearSession();
         storage.clearJWT();
 
@@ -96,7 +97,8 @@ export const logoutUser = () => {
       })
       .catch(async () => {
         await WonderPush.unsubscribeFromNotifications();
-        Actions.reset("Login");
+        // ...
+        // Actions.reset("Login");
         storage.clearSession();
         storage.clearSession();
         storage.clearJWT();
@@ -125,7 +127,8 @@ export const passwordReset = (payload) => {
       .post(passwordUrl(), payload)
       .then((data) => {
         dispatch(passwordSuccess(data));
-        Actions.reset("PasswordMessage");
+        // ...
+        // Actions.reset("PasswordMessage");
       })
       .catch((error) => {
         dispatch(passwordFailure());

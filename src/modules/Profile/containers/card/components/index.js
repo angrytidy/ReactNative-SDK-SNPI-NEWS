@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {View, Text, TouchableOpacity, Image, FlatList, Dimensions, Platform, Linking} from "react-native";
-import { Actions } from "react-native-router-flux";
+// ...
+// import { Actions } from "react-native-router-flux";
 import WonderPush from "react-native-wonderpush";
 
 // styls
@@ -336,7 +337,10 @@ export default () => {
         />}
 
         <View style={styles.hedaerContent}>
-          <TouchableOpacity style={styles.backContent} activeOpacity={0.8} onPress={() => Actions.pop()}>
+          <TouchableOpacity style={styles.backContent} activeOpacity={0.8} onPress={() => {
+            // ...
+            // Actions.pop()
+          }}>
             <Image source={require("assets/imgs/arrow-back.png")} style={styles.back}/>
           </TouchableOpacity>
           <Text style={styles.title}>{strings.subscriptionsCard}</Text>
