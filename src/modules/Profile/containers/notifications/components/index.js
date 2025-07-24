@@ -9,7 +9,8 @@ import styles from "./styles";
 import strings from "../../../locales/fr";
 
 // lib
-import { Actions } from "react-native-router-flux";
+// ...
+// import { Actions } from "react-native-router-flux";
 import { notifications } from "../../../actions";
 import WonderPush from "react-native-wonderpush";
 import {Api} from "../../../../../api";
@@ -85,7 +86,10 @@ export default () => {
         <TouchableOpacity
           style={styles.backContent}
           activeOpacity={0.8}
-          onPress={() => Actions.pop()} //reset("Profile")
+          onPress={() => {
+            // ...
+            // Actions.pop()
+          }} //reset("Profile")
         >
           <Image
             source={require("assets/imgs/arrow-back.png")}

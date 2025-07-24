@@ -1,12 +1,13 @@
-import { ActionConst } from "react-native-router-flux";
+// ...
+// import { ActionConst } from "react-native-router-flux";
 
 /*
  * Routing component (from modules folder)
  */
-import Login from "modules/Auth/containers/Login";
-import ResetPassword from "modules/Auth/containers/resetPassword";
-import PasswordMessage from "modules/Auth/containers/passwordMessage";
-import Home from "modules/Auth/containers/homePage";
+import Login from "./containers/Login";
+import ResetPassword from "./containers/resetPassword";
+import PasswordMessage from "./containers/passwordMessage";
+import Home from "./containers/homePage";
 import List from "../Home/containers/Home";
 const routes = [
   {

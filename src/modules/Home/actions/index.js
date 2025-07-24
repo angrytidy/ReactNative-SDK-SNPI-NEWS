@@ -10,7 +10,8 @@ import actions from "../actionsTypes";
 //lib
 import { getList, getOne } from "../api";
 import {getMe, refreshToken} from "../../../actions/globalActions";
-import {Actions} from "react-native-router-flux";
+// ...
+// import {Actions} from "react-native-router-flux";
 import {logoutUser} from "../../Auth/actions";
 
 /** List  */

@@ -1,4 +1,4 @@
-import strings from 'config/strings';
+import strings from './strings';
 
 const languages = [
   {

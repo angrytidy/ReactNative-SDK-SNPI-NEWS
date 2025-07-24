@@ -9,24 +9,26 @@ import React from "react";
 import { View, Platform, Text, SafeAreaView, StatusBar } from "react-native";
 
 import SplashScreen from "react-native-splash-screen";
-import codePush from "react-native-code-push";
+// ...
+// import codePush from "react-native-code-push";
 import AutoHeightImage from "react-native-auto-height-image";
 
-import PercentageCircle from "components/PercentageCircle";
+import PercentageCircle from "./src/common/components/PercentageCircle";
 
-import strings from "config/strings";
+import strings from "./src/config/strings";
 
-import colors from "colors";
-import common from "styles";
+import colors from "./src/common/colors";
+import common from "./src/common/styles";
 
 import Main from "./src";
 
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
 
-const codePushOptions = {
-  checkFrequency: codePush.CheckFrequency.MANUAL,// MANUAL
-  installMode: codePush.InstallMode.IMMEDIATE,
-};
+// ...
+// const codePushOptions = {
+//   checkFrequency: codePush.CheckFrequency.MANUAL,// MANUAL
+//   installMode: codePush.InstallMode.IMMEDIATE,
+// };
 
 const { FontSize, FontFamily } = common;
 
@@ -84,43 +86,47 @@ class App extends React.Component {
       SplashScreen.hide();
   }
 
-  codePushStatusDidChange(status) {
-    switch (status) {
-      case codePush.SyncStatus.CHECKING_FOR_UPDATE:
-        console.log("Checking for updates.");
-        break;
-      case codePush.SyncStatus.DOWNLOADING_PACKAGE:
-        this.setState({ codePushUpdating: true });
-        break;
-      case codePush.SyncStatus.INSTALLING_UPDATE:
-        break;
-      case codePush.SyncStatus.UP_TO_DATE:
-        console.log("Up to date.");
-        break;
-      case codePush.SyncStatus.UPDATE_INSTALLED:
-        console.log("Update installed.");
-        break;
-      default:
-        break;
-    }
-  }
+  // ...
+  // codePushStatusDidChange(status) {
+  //   switch (status) {
+  //     case codePush.SyncStatus.CHECKING_FOR_UPDATE:
+  //       console.log("Checking for updates.");
+  //       break;
+  //     case codePush.SyncStatus.DOWNLOADING_PACKAGE:
+  //       this.setState({ codePushUpdating: true });
+  //       break;
+  //     case codePush.SyncStatus.INSTALLING_UPDATE:
+  //       break;
+  //     case codePush.SyncStatus.UP_TO_DATE:
+  //       console.log("Up to date.");
+  //       break;
+  //     case codePush.SyncStatus.UPDATE_INSTALLED:
+  //       console.log("Update installed.");
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // }
 
-  codePushDownloadDidProgress(progress) {
-    this.setState({
-      percent: parseInt(
-        (progress.receivedBytes * 100) / progress.totalBytes,
-        10
-      ),
-    });
-  }
+  // ...
+  // codePushDownloadDidProgress(progress) {
+  //   this.setState({
+  //     percent: parseInt(
+  //       (progress.receivedBytes * 100) / progress.totalBytes,
+  //       10
+  //     ),
+  //   });
+  // }
 
   render() {
-    const { codePushUpdating, percent } = this.state;
+    // ...
+    // const { codePushUpdating, percent } = this.state;
     return (
       <>
         <StatusBar /*backgroundColor={app.darkPink}*/ />
         <SafeAreaView style={styles.container}>
-          {codePushUpdating ? (
+          {/* // ... */}
+          {/* {codePushUpdating ? (
             <View style={styles.progressContent}>
               <PercentageCircle
                 percent={percent}
@@ -137,11 +143,14 @@ class App extends React.Component {
             </View>
           ) : (
             <Main/>
-          )}
+          )} */}
+          <Main/>
         </SafeAreaView>
       </>
     );
   }
 }
 
-export default codePush(codePushOptions)(App);
+// ...
+// export default codePush(codePushOptions)(App);
+export default App;

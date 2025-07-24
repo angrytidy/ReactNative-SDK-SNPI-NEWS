@@ -3,7 +3,8 @@ import React from "react";
 //rn comp
 import { Image, Text, TouchableOpacity, View } from "react-native";
 // nav
-import { Actions } from "react-native-router-flux";
+// ...
+// import { Actions } from "react-native-router-flux";
 // styles
 import styles from "./styles";
 // libs
@@ -54,8 +55,8 @@ export default ({ data }) => {
 
       // Track GA Open News EVENTS
       gaSendLoadAppEvent(currentUser?.id?.toString(), "news_click", {"newsId" : data?.id});
-
-      Actions.Details({ data: data });
+      // ...
+      // Actions.Details({ data: data });
 
     }} activeOpacity={0.8}>
       <View style={styles.container}>

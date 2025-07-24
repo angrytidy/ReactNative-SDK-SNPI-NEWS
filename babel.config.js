@@ -1,18 +1,34 @@
 module.exports = {
-  presets: [
-      "module:metro-react-native-babel-preset"
-  ],
+  presets: ['module:@react-native/babel-preset'],
   plugins: [
     [
-      "module:react-native-dotenv",
+      'module-resolver',
       {
-        moduleName: "@env",
-        path: ".env",
-        blacklist: null,
-        whitelist: null,
-        safe: true,
-        allowUndefined: true
-      }
-    ]
-  ]
+        root: ['./src'],
+        alias: {
+          assets: './src/assets',
+          common: './src/common',
+          styles: './src/common/styles',
+          colors: './src/common/colors',
+          components: './src/common/components',
+          config: './src/config',
+          actions: './src/actions',
+          actionsTypes: './src/actionsTypes',
+          api: './src/api',
+          contextProviders: './src/contextProviders',
+          hooks: './src/hooks',
+          lib: './src/lib',
+          locales: './src/locales',
+          modules: './src/modules',
+          reducers: './src/reducers',
+          router: './src/router',
+          scripts: './src/scripts',
+          services: './src/services',
+          store: './src/store',
+          utils: './src/utils',
+        },
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      },
+    ],
+  ],
 };

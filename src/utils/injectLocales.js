@@ -1,7 +1,7 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import strings from 'config/strings';
 
-import {merge} from 'lodash';
+import { merge } from 'lodash';
 
 export default function injectLocales(locales) {
   const currentConfig = strings.getContent();

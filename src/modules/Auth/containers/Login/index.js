@@ -10,8 +10,9 @@ import injectLocales from "utils/injectLocales";
 // redux action
 import * as actions from "modules/Auth/actions";
 
+
 // import locales
-import fr from "../../locales/fr";
+import fr from "locales/fr";
 
 const Login = (props) => {
   injectLocales({ fr });

@@ -1,6 +1,6 @@
 "use strict";
 
-import { getDefaultLang } from "config/languages";
+import { getDefaultLang } from "../config/languages";
 
 // declare actions types
 import {
@@ -9,7 +9,7 @@ import {
   SET_SELECTED_LANGUAGE,
   SET_IS_GUEST,
   SET_USER_CONVER,
-} from "actionstypes";
+} from "../actionsTypes";
 
 /**
  * ## InitialState

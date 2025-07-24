@@ -1,52 +1,110 @@
-/**
- * Copyright (c) Flexi Apps.
- *
- * A basic component to config the different app screens
- * in a router component
- *
- * Example usage:
- *
- * ```
- * import Router  from 'router';
- * ...
- *
- * <Router />
- * ```
- */
-
-import React from "react";
-import { BackHandler } from 'react-native';
-import { Router, Scene, Actions } from "react-native-router-flux";
-import { connect } from "react-redux";
-
-//scenes
-
-import configureRoutes from "./routingConfig";
+import React, { Component } from 'react';
+import { TouchableOpacity, View, Text } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Icons from 'react-native-vector-icons/AntDesign';
+import CheckAuth from 'modules/CheckAuth';
+import Login from "modules/Auth/containers/Login"
+import ResetPassword from 'modules/Auth/containers/resetPassword';
+import PasswordMessage from 'modules/Auth/containers/passwordMessage';
+import Home from 'modules/Auth/containers/homePage';
+import List from 'modules/Home/containers/Home'
+import Details from 'modules/Home/containers/Details';
+import Profile from 'modules/Profile/containers/compte'
+import Notifications from 'modules/Profile/containers/notifications';
+import Abonnements from 'modules/Profile/containers/followers';
+import Card from 'modules/Profile/containers/card';
+import ForceUpdate from 'modules/ForceUpdate/containers';
 
 
-const RouterRedux = connect()(Router);
-
-// injected routes
-const routes = configureRoutes();
-
-const AppRouter = () => {
+const Rootstack = () => {
+  const Stack = createStackNavigator();
 
   return (
-    <RouterRedux backAndroidHandler={() => {
-        let cs = Actions.currentScene;
-        console.log(cs)
-        if (cs === 'List') { BackHandler.exitApp(); }
-    }}>
-            <Scene hideNavBar>
-                {routes.map(
-                    ({ key, component, type, drawer, ...others }) =>
-                        !drawer && (
-                            <Scene key={key} component={component} type={type} {...others} />
-                        )
-                )}
-            </Scene>
-    </RouterRedux>
-  );
-};
+    <Stack.Navigator initialRouteName={'CheckAuth'} screenOptions={{ headerShown: false }}>
+      {/* <Stack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown: false}} /> */}
+      <Stack.Screen
+        name="CheckAuth"
+        component={CheckAuth}
+      />
+      {/* AUTH */}
+      <Stack.Group>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+        />
+        <Stack.Screen
+          name="ResetPassword"
+          component={ResetPassword}
+        />
+        <Stack.Screen
+          name="PasswordMessage"
+          component={PasswordMessage}
+        />
+        <Stack.Screen
+          name="FirstView"
+          component={Home}
+        />
+      </Stack.Group>
+      {/* Home */}
+      <Stack.Group>
+        <Stack.Screen
+          name="List"
+          component={List}
+        />
+        <Stack.Screen
+          name="Details"
+          component={Details}
+        />
+      </Stack.Group>
+      {/* Profile */}
+      <Stack.Group>
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+        />
+        <Stack.Screen
+          name="Notifications"
+          component={Notifications}
+        />
+        <Stack.Screen
+          name="Abonnements"
+          component={Abonnements}
+        />
+        <Stack.Screen
+          name="Card"
+          component={Card}
+        />
+      </Stack.Group>
+      {/* ForceUpdate / Update From Store*/}
+      <Stack.Screen
+        name="ForceUpdate"
+        component={ForceUpdate}
+      />
 
-export default AppRouter;
+
+      {/* <Stack.Screen
+        name="SignUp"
+        component={SignupScreen}
+        options={({navigation}) => ({
+          headerTitle: '',
+          headerLeft: () => (
+            isIos ? <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Icons
+                  name={'arrowleft'}
+                  size={25}
+                  style={{color: 'black'}}/>
+            </TouchableOpacity> : <View style={{width: 25}} />
+          ),
+          headerTitleStyle: NavigationStyles.headerTitle,
+          headerLeftContainerStyle: NavigationStyles.headerLeftPadding,
+          headerRightContainerStyle: NavigationStyles.headerRightPadding,
+          // headerStyle: NavigationStyles.headerStyle,
+          headerShown: true
+        })}
+      /> */}
+
+    </Stack.Navigator>
+  );
+}
+
+export default Rootstack;

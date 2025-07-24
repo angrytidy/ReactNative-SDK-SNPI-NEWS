@@ -1,104 +1,126 @@
-import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 
 //styles
 import styles from "./styles";
 
 //lib
-import { Actions } from "react-native-router-flux";
-import { Content } from "native-base";
+// ...
+// import { Actions } from "react-native-router-flux";
 
 //componens
-import Input from "components/Input";
-import Button from "components/Button";
+import Input from "common/components/Input";
+import Button from "common/components/Button";
 import strings from "config/strings";
+import { navigate } from "router/navigator";
 
-class Login extends React.Component {
+export const Login = (props) => {
   state = {
     password: "",
     login: "",
     showPassword: true,
   };
 
-  login = () => {
-    const { login, password } = this.state;
+  const [password, setPassword] = useState('');
+  const [login, setLogin] = useState('');
+  const [showPassword, setShowPassword] = useState(true);
+
+  const loginPresed = () => {
+
     const payload = {
       login,
       password,
       // oneSignalPlayerId: this.props.oneSignalPlayerId,
     };
-    this.props.actions.login(payload);
+    console.log("=====this.props.actions=====", typeof props.actions);
+    props.actions.login(payload);
   };
-  onPress = () => {
-    Actions.FirstView();
+  const onPress = () => {
+    // ...
+    // Actions.FirstView();
+    navigate("FirstView")
   };
-  render() {
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.backContent} onPress={this.onPress} activeOpacity={0.8}>
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.backContent} onPress={() => {
+        onPress();
+      }} activeOpacity={0.8}>
+        <Image
+          source={require("assets/imgs/arrow-back.png")}
+          style={styles.back}
+        />
+      </TouchableOpacity>
+
+      <ScrollView
+        contentContainerStyle={styles.contentContainerner}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.logoContent}>
           <Image
-            source={require("assets/imgs/arrow-back.png")}
-            style={styles.back}
+            source={require("assets/imgs/SNPI-logo.png")}
+            style={styles.logoImage}
+            resizeMode="contain"
           />
+        </View>
+        <Input
+          label={strings.mail_address}
+          value={login}
+          onChangeText={(txt) => {
+            setLogin(txt);
+          }}
+          keyboardType={"email-address"}
+        />
+
+        <Input
+          label={strings.mot_de_passe}
+          value={password}
+          secureTextEntry={showPassword}
+          onChangeText={(txt) => {
+            setPassword(txt);
+          }}
+          rightIcon={
+            <Image
+              source={
+                showPassword
+                  ? require("assets/imgs/view.png")
+                  : require("assets/imgs/invisible.png")
+              }
+              style={styles.rightIcon}
+              resizeMode="cover"
+            />
+          }
+          onPressRight={() => {
+            setShowPassword(!showPassword);
+          }}
+        />
+        <TouchableOpacity
+          style={styles.forgetPasswordContainer}
+          onPress={() => {
+            // ...
+            // Actions.ResetPassword()
+            navigate('ResetPassword');
+          }}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.textbutton}>{strings.forgetPassword}</Text>
         </TouchableOpacity>
 
-        <Content contentContainerStyle={styles.contentContainerner}>
-          <View style={styles.logoContent}>
-            <Image
-              source={require("../../../../../assets/imgs/SNPI-logo.png")}
-              style={styles.logoImage}
-              resizeMode="contain"
-            />
-          </View>
-          <Input
-            label={strings.mail_address}
-            value={this.state.login}
-            onChangeText={(login) => this.setState({ login })}
-            keyboardType={"email-address"}
+        <View style={styles.cguAndButtonContainer}>
+          <Button
+            big
+            content={strings.connexion}
+            additonalContainerStyle={styles.additonalContainerStyle}
+            onPress={() => {
+              loginPresed();
+            }}
+            loading={props.auth.fetching}
+            disabled={!login || !password}
           />
-
-          <Input
-            label={strings.mot_de_passe}
-            value={this.state.password}
-            secureTextEntry={this.state.showPassword}
-            onChangeText={(password) => this.setState({ password })}
-            rightIcon={
-              <Image
-                source={
-                  this.state.showPassword
-                    ? require("assets/imgs/view.png")
-                    : require("assets/imgs/invisible.png")
-                }
-                style={styles.rightIcon}
-                resizeMode="cover"
-              />
-            }
-            onPressRight={() =>
-              this.setState({ showPassword: !this.state.showPassword })
-            }
-          />
-          <TouchableOpacity
-            style={styles.forgetPasswordContainer}
-            onPress={() => Actions.ResetPassword()}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.textbutton}>{strings.forgetPassword}</Text>
-          </TouchableOpacity>
-
-          <View style={styles.cguAndButtonContainer}>
-            <Button
-              big
-              content={strings.connexion}
-              additonalContainerStyle={styles.additonalContainerStyle}
-              onPress={this.login}
-              loading={this.props.auth.fetching}
-              disabled={!this.state.login || !this.state.password}
-            />
-          </View>
-        </Content>
-      </View>
-    );
-  }
+        </View>
+      </ScrollView>
+    </View>
+  );
 }
 
 export default Login;
