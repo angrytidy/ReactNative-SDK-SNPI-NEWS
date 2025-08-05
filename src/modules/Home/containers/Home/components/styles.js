@@ -13,10 +13,10 @@ export default ScaledSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    top: "20@vs",
+    top: "25@vs",
     marginHorizontal: "5@s",
     marginBottom: "5@vs",
-    height: 50,
+    height: 80,
     paddingHorizontal: 10,
   },
   topBarLeftItem : {

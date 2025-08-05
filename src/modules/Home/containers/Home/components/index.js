@@ -485,7 +485,10 @@ export default (props) => {
                 // Actions.Profile()
                 navigate('Profile');
               }}>
-                {profile ? (<Image source={{ uri: profile }} resizeMode="cover" style={[styles.profile]} />) : (<Text style={styles.profileText}>{profileText}</Text>)}
+                {profile ? (
+                  // <Image source={{ uri: profile }} resizeMode="cover" style={[styles.profile]} />
+                  <Image  source={require("assets/imgs/user.png")} resizeMode="cover" style={[styles.profile]} />
+                  ) : (<Text style={styles.profileText}>{profileText}</Text>)}
               </TouchableOpacity>
             </View >
           </View>

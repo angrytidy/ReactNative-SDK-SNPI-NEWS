@@ -36,11 +36,15 @@ export default () => {
   const CGU = API_BASE_URL + "/asset/cgu";
   // Execute actions methodes
   const dispatch = useDispatch();
+  // console.log("Current User", state);
 
   // Read from store state
   const profile = useSelector(
     (state) => state.global.currentUser?.contact?.avatar
   );
+
+  // console.log("Profile Page", profile);
+
   // click on Url
   const handlePress = async (type) => {
     let link = "";
@@ -85,7 +89,8 @@ export default () => {
         <Text style={styles.title}>{strings.count}</Text>
       </View>
       <View style={styles.profile}>
-        <Image source={{ uri: profile }} style={styles.image} resizeMode="cover" />
+        {/* <Image source={{ uri: profile }} style={styles.image} resizeMode="cover" /> */}
+        <Image source={require("assets/imgs/user.png")}  style={styles.image} resizeMode="cover" />
         <Text style={styles.fullName}>{`${state?.firstname ? state?.firstname : ""
           } ${state?.lastname ? state?.lastname : ""}`}</Text>
       </View>

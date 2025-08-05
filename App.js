@@ -5,24 +5,24 @@
  * @format
  */
 
-import React from "react";
-import { View, Platform, Text, SafeAreaView, StatusBar } from "react-native";
+import React from 'react';
+import { View, Platform, Text, SafeAreaView, StatusBar } from 'react-native';
 
-import SplashScreen from "react-native-splash-screen";
+import SplashScreen from 'react-native-splash-screen';
 // ...
 // import codePush from "react-native-code-push";
-import AutoHeightImage from "react-native-auto-height-image";
+import AutoHeightImage from 'react-native-auto-height-image';
 
-import PercentageCircle from "./src/common/components/PercentageCircle";
+import PercentageCircle from './src/common/components/PercentageCircle';
 
-import strings from "./src/config/strings";
+import strings from './src/config/strings';
 
-import colors from "./src/common/colors";
-import common from "./src/common/styles";
+import colors from './src/common/colors';
+import common from './src/common/styles';
 
-import Main from "./src";
+import Main from './src';
 
-import PushNotificationIOS from "@react-native-community/push-notification-ios";
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 
 // ...
 // const codePushOptions = {
@@ -35,16 +35,16 @@ const { FontSize, FontFamily } = common;
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
   progressContent: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   progress: {
     marginTop: 10,
-    alignSelf: "center",
+    alignSelf: 'center',
     fontFamily: FontFamily.defaultFont,
     fontSize: FontSize.small,
   },
@@ -61,20 +61,19 @@ class App extends React.Component {
   };
 
   async componentDidMount() {
-
-    if (Platform.OS === "ios") {
-
-      PushNotificationIOS.addEventListener('notification', function(notification) {
-        PushNotificationIOS.getApplicationIconBadgeNumber(num => {
-          if (num > 0) {
-            PushNotificationIOS.setApplicationIconBadgeNumber(num+1);
-          }
-          else {
-            PushNotificationIOS.setApplicationIconBadgeNumber(1);
-          }
-        });
-      });
-
+    if (Platform.OS === 'ios') {
+      PushNotificationIOS.addEventListener(
+        'notification',
+        function (notification) {
+          PushNotificationIOS.getApplicationIconBadgeNumber(num => {
+            if (num > 0) {
+              PushNotificationIOS.setApplicationIconBadgeNumber(num + 1);
+            } else {
+              PushNotificationIOS.setApplicationIconBadgeNumber(1);
+            }
+          });
+        },
+      );
     }
 
     // WonderPush.eventEmitterWonderPush.addListener('wonderpushNotificationWillOpen', (event) => {
@@ -82,8 +81,7 @@ class App extends React.Component {
     //   // On Android, you should now start your application on the appropriate screen.
     // });
 
-    if (Platform.OS === "android")
-      SplashScreen.hide();
+    if (Platform.OS === 'android') SplashScreen.hide();
   }
 
   // ...
@@ -123,7 +121,15 @@ class App extends React.Component {
     // const { codePushUpdating, percent } = this.state;
     return (
       <>
-        <StatusBar /*backgroundColor={app.darkPink}*/ />
+        {/* <StatusBar backgroundColor={app.darkPink} /> */}
+        {/* <StatusBar backgroundColor="#6200EE" barStyle="light-content" /> */}
+
+        <StatusBar
+          barStyle="dark-content" // <-- This changes text/icon color to dark
+          translucent={false}
+          backgroundColor="#ffffff" // or any color you want
+        />
+
         <SafeAreaView style={styles.container}>
           {/* // ... */}
           {/* {codePushUpdating ? (
@@ -144,7 +150,7 @@ class App extends React.Component {
           ) : (
             <Main/>
           )} */}
-          <Main/>
+          <Main />
         </SafeAreaView>
       </>
     );

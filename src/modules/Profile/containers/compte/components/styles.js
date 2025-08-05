@@ -12,7 +12,7 @@ export default ScaledSheet.create({
   },
   hedaerContent: {
     flexDirection: "row",
-    top: "-10@vs",
+    top: "10@vs",
     justifyContent: "space-between",
   },
   back: {
