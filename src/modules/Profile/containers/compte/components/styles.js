@@ -8,7 +8,9 @@ export default ScaledSheet.create({
   container: {
     flex: 1,
     paddingVertical: 15,
-    backgroundColor:'#fff'
+    backgroundColor:'#fff',
+    paddingBottom: "40@vs",
+
   },
   hedaerContent: {
     flexDirection: "row",
@@ -73,7 +75,8 @@ export default ScaledSheet.create({
     padding: 15,
     borderRadius: 10,
     marginHorizontal: 15,
-    marginVertical: "5@vs"
+    marginVertical: "5@vs",
+    // paddingBottom: "40@vs",
   },
   choice: {
     color: "#042B72",

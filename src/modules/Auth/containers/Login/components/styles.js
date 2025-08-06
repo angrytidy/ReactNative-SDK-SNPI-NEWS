@@ -9,7 +9,8 @@ import { I18nManager } from "react-native";
 export default ScaledSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#fff'
+    backgroundColor:'#fff',
+    // paddingBottom: "40@vs",
   },
   back: {
     // height: "6@vs",
@@ -64,7 +65,7 @@ export default ScaledSheet.create({
   cguAndButtonContainer: {
     flex: 1,
     justifyContent: "flex-end",
-    paddingBottom: "20@vs",
+    paddingBottom: "40@vs",
   },
   additonalContainerStyle: {
     marginTop: "31@vs",

@@ -1,25 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import React, { useState, useEffect } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from 'react-native';
 
 //styles
-import styles from "./styles";
+import styles from './styles';
 
 //lib
 // ...
 // import { Actions } from "react-native-router-flux";
 
 //componens
-import Input from "common/components/Input";
-import Button from "common/components/Button";
+import Input from 'common/components/Input';
+import Button from 'common/components/Button';
 // ...
 // import strings from "config/strings";
-import strings from "modules/Auth/locales/fr";
-import { navigate } from "router/navigator";
+import strings from 'modules/Auth/locales/fr';
+import { navigate } from 'router/navigator';
 
-export const Login = (props) => {
+export const Login = props => {
   state = {
-    password: "",
-    login: "",
+    password: '',
+    login: '',
     showPassword: true,
   };
 
@@ -28,7 +34,6 @@ export const Login = (props) => {
   const [showPassword, setShowPassword] = useState(true);
 
   const loginPresed = () => {
-
     const payload = {
       login,
       password,
@@ -39,16 +44,20 @@ export const Login = (props) => {
   const onPress = () => {
     // ...
     // Actions.FirstView();
-    navigate("FirstView")
+    navigate('FirstView');
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backContent} onPress={() => {
-        onPress();
-      }} activeOpacity={0.8}>
+      <TouchableOpacity
+        style={styles.backContent}
+        onPress={() => {
+          onPress();
+        }}
+        activeOpacity={0.8}
+      >
         <Image
-          source={require("assets/imgs/arrow-back.png")}
+          source={require('assets/imgs/arrow-back.png')}
           style={styles.back}
         />
       </TouchableOpacity>
@@ -59,7 +68,7 @@ export const Login = (props) => {
       >
         <View style={styles.logoContent}>
           <Image
-            source={require("assets/imgs/SNPI-logo.png")}
+            source={require('assets/imgs/SNPI-logo.png')}
             style={styles.logoImage}
             resizeMode="contain"
           />
@@ -67,25 +76,25 @@ export const Login = (props) => {
         <Input
           label={strings.mail_address}
           value={login}
-          onChangeText={(txt) => {
+          onChangeText={txt => {
             setLogin(txt);
           }}
-          keyboardType={"email-address"}
+          keyboardType={'email-address'}
         />
 
         <Input
           label={strings.mot_de_passe}
           value={password}
           secureTextEntry={showPassword}
-          onChangeText={(txt) => {
+          onChangeText={txt => {
             setPassword(txt);
           }}
           rightIcon={
             <Image
               source={
                 showPassword
-                  ? require("assets/imgs/view.png")
-                  : require("assets/imgs/invisible.png")
+                  ? require('assets/imgs/view.png')
+                  : require('assets/imgs/invisible.png')
               }
               style={styles.rightIcon}
               resizeMode="cover"
@@ -122,6 +131,6 @@ export const Login = (props) => {
       </ScrollView>
     </View>
   );
-}
+};
 
 export default Login;
