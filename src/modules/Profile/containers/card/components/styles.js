@@ -11,7 +11,7 @@ export default ScaledSheet.create({
   },
   hedaerContent: {
     flexDirection: "row",
-    top: "10@vs",
+    top: "20@vs",
     justifyContent: "space-between",
   },
   back: {
@@ -35,7 +35,7 @@ export default ScaledSheet.create({
     fontSize: 16,
     fontFamily: "PTSans-Bold",
     textAlign: "center",
-    top: 20,
+    top: 30,
     position: 'absolute',
     left: 50,
     right: 50
