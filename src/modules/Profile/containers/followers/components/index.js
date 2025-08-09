@@ -14,6 +14,7 @@ import Icon from "react-native-vector-icons/Feather";
 // actions
 import { follower } from "modules/Profile/actions";
 import { useNavigation } from "@react-navigation/native";
+import FeatherIcon from 'react-native-vector-icons/Feather';
 
 export default () => {
 
@@ -198,7 +199,10 @@ export default () => {
       >
         <Text style={styles.items}>{item.title}</Text>
         <View style={styles.selected}>
-          <Icon name="check" size={20} color="#b0bdd3" />
+          <Image
+            source={require('assets/imgs/check.png')}
+            style={[styles.checkIcon, { tintColor: '#b0bdd3' }]}
+          />
         </View>
       </TouchableOpacity>
     );
